@@ -1,7 +1,5 @@
 import { Link, useNavigate } from '@tanstack/react-router';
 import { useCallback, useState } from 'react';
-import { Input } from '@/components/ui/input';
-import { Field } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import {
   Select,
@@ -15,23 +13,20 @@ import {
   DEFAULT_PAGE_SIZE,
   NETWORK_LABELS,
   NETWORKS,
-  RARITIES,
-  RARITY_LABELS,
   SORT_LABELS,
   SORT_OPTIONS,
-  buildListQuery,
+  
   type CatalogSearchParams,
   type SortOption,
 } from '@/api/search-params';
-import type { NftCollection, WalletNetwork, NftRarity } from '@/types';
+import type { NftCollection } from '@/types';
 
 import {
-  useNftCategories,
   useNftCollections,
   useNftNetworkCounts,
 } from '@/hooks/use-nfts';
 
-import { Filter, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
 export interface CatalogFiltersProps {
   search: CatalogSearchParams;
@@ -40,7 +35,6 @@ export interface CatalogFiltersProps {
 export function CatalogFilters({ search }: CatalogFiltersProps) {
   const navigate = useNavigate({ from: '/' });
  const collections = useNftCollections();
-const categories = useNftCategories();
 const networkCounts = useNftNetworkCounts();
   const [maxPriceDraft, setMaxPriceDraft] = useState(Number(search.maxPrice ?? 10));
 

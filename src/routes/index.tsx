@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { ArrowRight } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import {
@@ -8,10 +8,10 @@ import {
   CatalogToolbar,
 } from '@/components/catalog/catalog-filters';
 import { NftCard } from '@/components/nft/nft-card';
-import { NftArt } from '@/components/nft/nft-art';
+
 import { useNftList } from '@/hooks/use-nfts';
 import { buildListQuery, catalogSearchSchema } from '@/api/search-params';
-import { Link as RouterLink } from '@tanstack/react-router';
+
 
 export const Route = createFileRoute('/')({
   validateSearch: catalogSearchSchema,
